@@ -1,32 +1,59 @@
-# Loan Management System
-project link - https://loan-app-cyan.vercel.app/
-Modern loan management web app built with React, Vite, Chakra UI, and Firebase.
+# 💰 Loan Management System
 
-## Overview
+🔗 **Live Project:** [https://loan-app-cyan.vercel.app/](https://loan-app-cyan.vercel.app/)
 
-This application enables users to register/login, apply for loans via a guided multi-step form, compare loan options, and track repayment schedules. Authenticated routes are protected using a custom `PrivateRoute` with context-driven Firebase Auth.
+A modern **Loan Management Web App** built with **React, Vite, Chakra UI, and Firebase**.
 
-## Features
+---
 
-- **Authentication**: Firebase Email/Password auth via `src/context/AuthContext.jsx` and route protection in `src/components/PrivateRoute.jsx`.
-- **Multi-step Loan Application**: Personal, financial, and document upload steps under `src/components/loan-application/*` and `src/pages/LoanApplication.jsx`.
-- **Loan Comparison**: Compare loan options on `src/pages/LoanComparison.jsx`.
-- **Repayment Calendar**: View repayment plan on `src/pages/RepaymentCalendar.jsx`.
-- **Dashboard**: Authenticated user dashboard at `src/pages/Dashboard.jsx`.
-- **Responsive UI**: Built with Chakra UI components.
-- **Routing**: React Router v6 with protected routes.
+## 📘 Overview
 
-## Tech Stack
+**Loan Management System** allows users to register/login, apply for loans through a guided multi-step process, compare available loan options, and track repayment schedules.
 
-- **Frontend**: React 19, Vite 6, Chakra UI
-- **Routing**: React Router v6
-- **State/Auth**: Firebase Auth with React Context
-- **Data**: Firebase Firestore, Realtime Database, Storage, Analytics
-- **Tooling**: ESLint 9, Vite plugin for React
+Authenticated routes are protected using a custom `PrivateRoute` component powered by **Firebase Authentication** and **React Context**.
 
-## Project Structure
+---
 
-```
+## ✨ Features
+
+- 🔐 **Authentication:** Email/Password authentication using Firebase (`src/context/AuthContext.jsx`)  
+  Route protection via `src/components/PrivateRoute.jsx`.
+
+- 🧾 **Multi-step Loan Application:**  
+  Personal info, financial details, document upload, and review steps managed under `src/components/loan-application/*` and `src/pages/LoanApplication.jsx`.
+
+- ⚖️ **Loan Comparison:**  
+  Compare available loan plans at `src/pages/LoanComparison.jsx`.
+
+- 📆 **Repayment Calendar:**  
+  View loan repayment schedules at `src/pages/RepaymentCalendar.jsx`.
+
+- 🧭 **Dashboard:**  
+  Authenticated user dashboard in `src/pages/Dashboard.jsx`.
+
+- 📱 **Responsive UI:**  
+  Fully responsive design built using **Chakra UI** components.
+
+- 🧭 **Routing:**  
+  Implemented with **React Router v6** and protected routes.
+
+---
+
+## 🧰 Tech Stack
+
+| Category | Technologies |
+|-----------|---------------|
+| **Frontend** | React 19, Vite 6, Chakra UI |
+| **Routing** | React Router v6 |
+| **State/Auth** | Firebase Authentication + React Context |
+| **Database & Storage** | Firestore, Realtime Database, Firebase Storage, Analytics |
+| **Tooling** | ESLint 9, Vite Plugin for React |
+
+---
+
+## 📂 Project Structure
+
+```bash
 src/
   App.jsx
   main.jsx
@@ -53,13 +80,12 @@ src/
     RepaymentCalendar.jsx
   styles/
     main.css
-```
+⚙️ Environment Variables
 
-## Environment Variables
+Create a .env.local file (excluded from Git) based on .env.example with your Firebase configuration.
 
-Create a `.env.local` (not committed) based on `.env.example` with your Firebase configuration. These variables are read in `src/config/firebase.js`:
+These values are loaded in src/config/firebase.js:
 
-```
 VITE_FIREBASE_API_KEY=
 VITE_FIREBASE_AUTH_DOMAIN=
 VITE_FIREBASE_PROJECT_ID=
@@ -67,52 +93,72 @@ VITE_FIREBASE_STORAGE_BUCKET=
 VITE_FIREBASE_MESSAGING_SENDER_ID=
 VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
-```
 
-## Getting Started
+🚀 Getting Started
+🧩 Prerequisites
 
-- **Prerequisites**
-  - Node.js LTS (>=18 recommended)
-  - npm 9+
+Node.js LTS (v18+)
 
-- **Install dependencies**
-  ```bash
-  npm install
-  ```
+npm v9+
 
-- **Environment setup**
-  1. Copy `.env.example` to `.env.local`.
-  2. Fill in Firebase values from your Firebase project settings.
+🛠️ Installation
+# Install dependencies
+npm install
 
-- **Run locally**
-  ```bash
-  npm run dev
-  ```
-  App runs with Vite dev server. Open the printed local URL in your browser.
+🔧 Environment Setup
 
-## Available Scripts
+Copy .env.example → .env.local
 
-- `npm run dev` – Start Vite dev server
-- `npm run build` – Production build to `dist/`
-- `npm run preview` – Preview the production build locally
-- `npm run lint` – Lint the codebase with ESLint
+Fill in your Firebase project credentials.
 
-## Routing and Auth
+▶️ Run Locally
+npm run dev
 
-- Public routes: `/`, `/login`, `/register`
-- Protected routes (require login): `/dashboard`, `/apply`, `/repayment`, `/compare`
-- Protection implemented by wrapping route elements with `PrivateRoute` in `src/App.jsx`.
 
-## Deployment
+App runs with Vite Dev Server.
+Open the printed local URL (e.g., http://localhost:5173) in your browser.
 
-The repository includes `vercel.json` configured for a Vite SPA build and SPA rewrites:
+🧾 Available Scripts
+Command	Description
+npm run dev	Start Vite dev server
+npm run build	Build for production (output to /dist)
+npm run preview	Preview the production build locally
+npm run lint	Lint the codebase using ESLint
+🔒 Routing & Authentication
+Route Type	Path	Description
+Public	/, /login, /register	Accessible without login
+Protected	/dashboard, /apply, /compare, /repayment	Require authentication
 
-- Build command: `npm run build`
-- Output directory: `dist`
-- SPA rewrite: all routes rewrite to `/index.html`
+Route protection is implemented by wrapping elements with PrivateRoute in src/App.jsx.
 
-You can deploy on Vercel by importing the repo and setting the same environment variables there.
+🌐 Deployment
 
-## License
+Deployment Platform: Vercel
 
-This project is provided as-is. Add a license file if you intend to open-source under a specific license.
+The repository includes a vercel.json configuration for Vite SPA builds with single-page route rewrites.
+
+Setting	Value
+Build Command	npm run build
+Output Directory	dist
+SPA Rewrites	All routes rewrite to /index.html
+
+To deploy:
+
+Import your GitHub repository into Vercel.
+
+Add the same environment variables (.env.local) in your Vercel project settings.
+
+Deploy automatically from the main branch.
+
+📜 License
+
+This project is provided as-is.
+Add a LICENSE file if you intend to open-source it under a specific license.
+
+👨‍💻 Author
+
+Developed by: Vibhuti sharma
+Role: Engineering | Fullstack Developer
+🌐 WebMorcha.com
+
+⭐ If you found this project helpful, please give it a star on GitHub! ⭐
